@@ -1,11 +1,3 @@
-"""
-Step 4: 함수화 + RMS 잔차 분석
-목표:
-1. 지금까지 만든 코드를 함수로 정리
-2. RMS 잔차 데이터 분석 추가
-3. 여러 outlet을 한번에 처리
-"""
-
 import numpy as np
 import pandas as pd
 import os
@@ -183,7 +175,7 @@ if __name__ == "__main__":
     print("📊 유량 데이터 분석")
     print("=" * 70)
     
-    df_massflow = load_cfd_data(r"C:\Users\user\Desktop\data_engineering\00_practice\case1\output_massflow.csv", skiprows)
+    df_massflow = load_cfd_data(r"output_massflow.csv", skiprows)
     massflow_results = analyze_all_outlets(df_massflow, max_amplitude_percent)
     
     for outlet, result in massflow_results.items():
@@ -198,7 +190,7 @@ if __name__ == "__main__":
     print("📉 RMS 잔차 분석")
     print("=" * 70)
     
-    rms_results = analyze_rms_residuals(r"C:\Users\user\Desktop\data_engineering\00_practice\case1\RMS_Turbulence.csv", skiprows)
+    rms_results = analyze_rms_residuals(r"RMS_Turbulence.csv", skiprows)
     
     for col, result in rms_results.items():
         print(f"\n{col}:")
@@ -299,3 +291,4 @@ if __name__ == "__main__":
     ax[1,1].legend(loc='upper right', fontsize=6)
 
     plt.show()
+
