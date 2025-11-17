@@ -237,42 +237,6 @@ residual_percent = 1e-5       # RMS 수렴 기준
 ✅ **헤더**: 4행 (CFX 기본)  
 ✅ **컬럼명**: `Timestep`, `Outlet01`, `Outlet02`, ...
 
-### 샘플 데이터 구조
-
-```csv
-[Name]
-SIMPLE
-
-[Data]
-Timestep,Outlet01 Massflow in Stn Frame,Outlet02 Massflow in Stn Frame
-1,8.921234,7.789456
-2,8.934567,7.801234
-3,8.912345,7.795678
-...
-```
-
----
-
-## 🔍 예제 결과
-
-### Case 1: 명확한 수렴
-```
-Outlet01: 평균=8.92 kg/s, 진폭=2.1% ✓
-RMS K: 3.2e-6 ✓
-→ 수렴 판정
-```
-![Sample Converged](output/sample_converged.png)
-
-### Case 2: 진동 지속
-```
-Outlet01: 평균=10.5 kg/s, 진폭=12.4% ✗
-RMS K: 4.1e-6 ✓
-→ 물리적 진동 또는 추가 iteration 검토
-```
-![Sample Oscillating](output/sample_oscillating.png)
-
----
-
 ## ⚠️ 제약사항 및 권장사항
 
 ### 적용 가능 조건
@@ -294,49 +258,6 @@ RMS K: 4.1e-6 ✓
 
 ---
 
-## 📚 관련 문서
-
-- [연구보고서](docs/연구보고서_v1.1.pdf) - 상세 이론 및 검증
-- [사용자 가이드](docs/사용자가이드.pdf) - 스크린샷 포함 매뉴얼
-- [발표 자료](docs/발표자료.pdf) - 10분 요약 프레젠테이션
-
----
-
-## 🗂 프로젝트 구조
-
-```
-CFD_Convergence_Diagnostics/
-│
-├── README.md                       # 본 파일
-├── requirements.txt                # 패키지 목록
-│
-├── src/
-│   └── Step4_graph_modified.py    # 메인 스크립트
-│
-├── docs/
-│   ├── 연구보고서_v1.1.pdf
-│   ├── 사용자가이드.pdf
-│   └── 발표자료.pdf
-│
-├── data/
-│   └── sample_massflow.csv        # 샘플 데이터
-│
-└── output/
-    ├── sample_converged.png
-    └── sample_oscillating.png
-```
-
----
-
-## 🤝 기여 및 피드백
-
-본 프로젝트는 실무 CFD 엔지니어의 피드백을 환영합니다:
-- 버그 리포트
-- 기능 제안
-- 적용 사례 공유
-
----
-
 ## 📄 라이선스
 
 MIT License - 자유롭게 사용, 수정, 배포 가능
@@ -348,7 +269,6 @@ MIT License - 자유롭게 사용, 수정, 배포 가능
 **규진**  
 - CFD Analysis Engineer (Ansys CFX)  
 - 전문 분야: 수처리 시설, 유동 해석, 해석 자동화  
-- 연락처: [your.email@example.com]
 
 ---
 
@@ -373,12 +293,3 @@ MIT License - 자유롭게 사용, 수정, 배포 가능
 - 4-plot 시각화
 
 ---
-
-## 🙏 감사의 글
-
-본 프로젝트는 실무 CFD 해석 과정에서 겪은 어려움을 해결하기 위해 개발되었습니다.  
-Ansys CFX 커뮤니티 및 동료 엔지니어들의 통찰에 감사드립니다.
-
----
-
-**⭐ 프로젝트가 유용하셨다면 Star를 눌러주세요!**
